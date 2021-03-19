@@ -16,6 +16,7 @@
 		5F30436E260441FE00DC3A43 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30436D260441FE00DC3A43 /* PlayerView.swift */; };
 		5F3043712604431500DC3A43 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3043702604431500DC3A43 /* UIView+extension.swift */; };
 		5F353F5A25DC3B1300C57FD8 /* SideMenuAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F353F5925DC3B1300C57FD8 /* SideMenuAnimator.swift */; };
+		5F568BFC2604F1B900CC93D9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5F568BFB2604F1B900CC93D9 /* .gitignore */; };
 		5F73B35F25CFA6F80062753A /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73B35E25CFA6F80062753A /* Firebase.swift */; };
 		5F77A47C25DD517100B412F4 /* FoldersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77A47B25DD517100B412F4 /* FoldersTableViewController.swift */; };
 		5F7D42B725CEB24200755C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7D42B625CEB24200755C63 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		5F30436D260441FE00DC3A43 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		5F3043702604431500DC3A43 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		5F353F5925DC3B1300C57FD8 /* SideMenuAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuAnimator.swift; sourceTree = "<group>"; };
+		5F568BFB2604F1B900CC93D9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5F73B35E25CFA6F80062753A /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		5F77A47B25DD517100B412F4 /* FoldersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersTableViewController.swift; sourceTree = "<group>"; };
 		5F7D42B325CEB24200755C63 /* BetterNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 		5F7D42AA25CEB24200755C63 = {
 			isa = PBXGroup;
 			children = (
+				5F568BFB2604F1B900CC93D9 /* .gitignore */,
 				5F7D42B525CEB24200755C63 /* BetterNotes */,
 				5F7D42B425CEB24200755C63 /* Products */,
 				D4D39AB84206F9DB44666BF9 /* Pods */,
@@ -254,6 +257,7 @@
 				5F2C965B25CF42020050F7EF /* GoogleService-Info.plist in Resources */,
 				5F7D42C025CEB24400755C63 /* Assets.xcassets in Resources */,
 				5F7D42BE25CEB24200755C63 /* Main.storyboard in Resources */,
+				5F568BFC2604F1B900CC93D9 /* .gitignore in Resources */,
 				5F30436B260441EA00DC3A43 /* PlayerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
