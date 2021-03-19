@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+@IBDesignable
 class PlayerView: UIView {
     
     @IBAction func sliderMoved(_ sender: UISlider) {
@@ -29,9 +29,15 @@ class PlayerView: UIView {
         configureView()
     }
     
+    convenience init(flag: Bool) {
+        self.init()
+        configureView()
+    }
+    
     private func configureView() {
         guard let view = self.loadViewFromNib(nibName: "PlayerView") else { return }
         view.frame = self.bounds
+        view.layer.cornerRadius = 20
         self.addSubview(view)
     }
 }

@@ -135,12 +135,13 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func addPlayer() {
-        let player = PlayerView()
+        let player = PlayerView(flag: true)
         player.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(player)
-        player.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        player.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        player.topAnchor.constraint(equalTo: views.last!.bottomAnchor, constant: 10).isActive = true
+        player.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        player.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:  -10).isActive = true
+        player.topAnchor.constraint(equalTo: views.last!.bottomAnchor, constant: 5).isActive = true
+        player.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
         views.append(player)
         print(views.count)
     }

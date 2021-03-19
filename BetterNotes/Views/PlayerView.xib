@@ -15,42 +15,43 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+            <rect key="frame" x="0.0" y="0.0" width="242" height="140"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MeR-Tk-Fnp">
-                    <rect key="frame" x="18" y="17" width="378" height="31"/>
+                    <rect key="frame" x="13" y="17" width="216" height="31"/>
                     <connections>
                         <action selector="sliderMoved:" destination="-1" eventType="valueChanged" id="akU-Et-rAS"/>
                     </connections>
                 </slider>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLC-as-5ln">
-                    <rect key="frame" x="190" y="65" width="35" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKj-QI-BDt">
-                    <rect key="frame" x="192" y="100" width="30" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKj-QI-BDt">
+                    <rect key="frame" x="106" y="90" width="30" height="30"/>
                     <state key="normal" title="Play"/>
                     <connections>
                         <action selector="playButtonPressed:" destination="-1" eventType="touchUpInside" id="A9B-51-3Ln"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLC-as-5ln">
+                    <rect key="frame" x="104" y="61" width="35" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemGray2Color"/>
             <constraints>
-                <constraint firstItem="zKj-QI-BDt" firstAttribute="top" secondItem="JLC-as-5ln" secondAttribute="bottom" constant="11" id="4wJ-F4-rWb"/>
-                <constraint firstAttribute="trailing" secondItem="MeR-Tk-Fnp" secondAttribute="trailing" constant="20" symbolic="YES" id="5J1-dz-97e"/>
-                <constraint firstItem="zKj-QI-BDt" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="6k3-vT-33r"/>
-                <constraint firstItem="JLC-as-5ln" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="8jB-GN-upA"/>
-                <constraint firstItem="MeR-Tk-Fnp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="aYb-MN-hfE"/>
-                <constraint firstItem="JLC-as-5ln" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="dQD-hr-byv"/>
-                <constraint firstItem="MeR-Tk-Fnp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="sP3-3G-KTs"/>
+                <constraint firstItem="zKj-QI-BDt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="106" id="5LT-HK-yoN"/>
+                <constraint firstItem="JLC-as-5ln" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="8zk-8x-KIo"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zKj-QI-BDt" secondAttribute="bottom" constant="20" id="HOq-OC-kO7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zKj-QI-BDt" secondAttribute="trailing" constant="106" id="Voy-3e-Um4"/>
+                <constraint firstItem="MeR-Tk-Fnp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="dBS-V2-883"/>
+                <constraint firstAttribute="trailing" secondItem="MeR-Tk-Fnp" secondAttribute="trailing" constant="15" id="gla-e3-Gkd"/>
+                <constraint firstItem="MeR-Tk-Fnp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="jYQ-Vf-lyK"/>
+                <constraint firstItem="JLC-as-5ln" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="z2k-Fm-FI2"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-107.24637681159422" y="90.401785714285708"/>
+            <point key="canvasLocation" x="-231.8840579710145" y="116.51785714285714"/>
         </view>
     </objects>
     <resources>
