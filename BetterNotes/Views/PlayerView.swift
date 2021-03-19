@@ -33,6 +33,5 @@ class PlayerView: UIView {
         guard let view = self.loadViewFromNib(nibName: "PlayerView") else { return }
         view.frame = self.bounds
         self.addSubview(view)
-        view.backgroundColor = .blue
     }
 }
