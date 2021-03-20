@@ -7,8 +7,14 @@
 
 import Foundation
 import UIKit
+import AVFoundation
+
 @IBDesignable
 class PlayerView: UIView {
+    
+    var url = URL(string: "")
+    var audioSession: AVAudioSession!
+    var audioPlayer: AVAudioPlayer!
     
     @IBAction func sliderMoved(_ sender: UISlider) {
         
@@ -17,7 +23,7 @@ class PlayerView: UIView {
     @IBOutlet weak var timer: UILabel!
     
     @IBAction func playButtonPressed(_ sender: UIButton) {
-        
+        startPlaying()
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,9 +35,10 @@ class PlayerView: UIView {
         configureView()
     }
     
-    convenience init(flag: Bool) {
+    convenience init(url: URL) {
         self.init()
         configureView()
+        configurePath(url: url)
     }
     
     private func configureView() {
@@ -39,5 +46,31 @@ class PlayerView: UIView {
         view.frame = self.bounds
         view.layer.cornerRadius = 20
         self.addSubview(view)
+        
+        audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playback)
+            try audioSession.setActive(true)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
+    
+    private func startPlaying() {
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOf: url!, fileTypeHint: AVFileType.m4a.rawValue)
+            if audioPlayer.isPlaying {
+                audioPlayer.pause()
+            } else {
+                audioPlayer.play()
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func configurePath(url: URL){
+        self.url = url
+    }
+    
 }
