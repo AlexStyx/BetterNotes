@@ -10,7 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerView" customModule="BetterNotes" customModuleProvider="target">
             <connections>
-                <outlet property="timer" destination="JLC-as-5ln" id="FIX-tx-P3d"/>
+                <outlet property="slider" destination="MeR-Tk-Fnp" id="x5y-jN-SGW"/>
+                <outlet property="timerLabel" destination="JLC-as-5ln" id="nfq-CD-IsP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

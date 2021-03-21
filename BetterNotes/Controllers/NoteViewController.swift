@@ -143,7 +143,6 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
         player.topAnchor.constraint(equalTo: views.last!.bottomAnchor, constant: 10).isActive = true
         player.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
         views.append(player)
-        print(views.count)
     }
     
     private func addSubviews() {
