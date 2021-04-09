@@ -7,15 +7,18 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class NoteViewController: UIViewController, UITextFieldDelegate {
     
+    let storage = Storage.storage()
+    var storageRef: StorageReference!
     var ref: DatabaseReference!
     var client: Client!
     var folderId = ""
     var open = false
     var paths: Array<URL> = []
-    var note = Note(headtitle: "", text: "", uniqueId: "", folderName: "")
+    var note = Note(headtitle: "", content: [], uniqueId: "", folderName: "")
     
     let transition = BottomMenuAnimator(duration: 0.8)
     
@@ -30,6 +33,7 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
         
         guard let currentUser = Auth.auth().currentUser else { return }
         client = Client(user: currentUser)
+        storageRef = storage.reference()
         if !open {
             ref = Database.database().reference().child("clients").child(String(client.uid)).child("folders").child(folderId).child("notes")
         } else {
@@ -134,7 +138,7 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    private func addPlayer() {
+    private func addPlayer(url: URL) {
         let player = PlayerView(url: paths.last!)
         player.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(player)
@@ -143,6 +147,21 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
         player.topAnchor.constraint(equalTo: views.last!.bottomAnchor, constant: 10).isActive = true
         player.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
         views.append(player)
+    }
+    
+    private func addTextView(text: String) {
+        let textView = UITextView()
+        textView.font = UIFont.systemFont(ofSize: 18)
+        textView.text = text
+        textView.isScrollEnabled = false
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(textView)
+        guard let lastView = views.last else { return }
+        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        textView.topAnchor.constraint(equalTo: lastView.bottomAnchor, constant: 1).isActive = true
+        view.addSubview(textView)
+        
     }
     
     private func addSubviews() {
@@ -155,8 +174,6 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(toolbar)
         layoutToolbar()
     }
-    
-    
 }
 
 // MARK: - Segues business
@@ -186,7 +203,7 @@ extension NoteViewController {
         view.mask = nil
         guard let sourceVC = segue.source as? RecorderViewController else { return }
         paths = sourceVC.paths
-        addPlayer()
+        addPlayer(url: paths.last!)
     }
 }
 
@@ -220,14 +237,60 @@ extension NoteViewController {
             } else {
                 let noteRef = ref.childByAutoId()
                 let headtitle = headtitleTextField.text
-                let text = noteTextView.text
-                let note = Note(headtitle: headtitle!, text: text!, uniqueId: noteRef.key!, folderName: folderId)
+                let content = note.content
+                let note = Note(headtitle: headtitle!, content: content!, uniqueId: noteRef.key!, folderName: folderId)
                 noteRef.setValue(note.convertToDictionary())
                 
             }
         }
         
-        note = Note(headtitle: "", text: "", uniqueId: "", folderName: "")
+        note = Note(headtitle: "", content: [], uniqueId: "", folderName: "")
+    }
+}
+
+//MARK: - Data business
+extension NoteViewController {
+    private func unpakcContent(content: [Content]) {
+        for contentItem in content {
+            switch contentItem.contentType {
+            case .text(let text): addTextView(text: text)
+            case .audio(let path): addPlayer(url: path)
+            case .photo(let path): print("add photoView")
+            }
+        }
+    }
+    
+    private func validateData(content: [Content]) {
+        for item in content {
+            switch item.contentType {
+            case .text(let text): addTextView(text: text)
+            case .audio(let url): addPlayer(url: url)
+            case .photo(let url): print(url)
+            }
+        }
+    }
+    
+    private func validateData(views: [UIView]) {
+        for item in views{
+            switch item {
+            case item as? UITextView:
+                guard let text = (item as! UITextView).text else { return }
+                saveText(text: text)
+            case item as? PlayerView:
+                guard let path = (item as! PlayerView).url else { return }
+                saveAudio(path: path)
+            default:
+                print("lol")
+            }
+        }
+    }
+    
+    private func saveText(text: String) {
+        
+    }
+    
+    private func saveAudio(path: URL) {
+        
     }
 }
 

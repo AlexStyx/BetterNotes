@@ -12,5 +12,6 @@ target 'BetterNotes' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'AKSideMenu'
+  pod 'Firebase/Storage'
 
 end

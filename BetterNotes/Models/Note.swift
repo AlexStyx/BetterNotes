@@ -38,8 +38,13 @@ struct Note {
 }
 
 struct Content {
-    var uniqueId: String?
     var contentType: ContentType
+    var contentTypeString: String
+    var entry: Any
+    
+    init(contentType: ContentType) {
+        self.contentType = contentType
+    }
 }
 
 enum ContentType {

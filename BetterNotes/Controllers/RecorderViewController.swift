@@ -15,7 +15,7 @@ class RecorderViewController: UIViewController{
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     var paths = Array<URL>()
-    var note = Note(headtitle: "", text: "", uniqueId: "", folderName: "")
+    var note = Note(headtitle: "", content: [], uniqueId: "", folderName: "")
     var ref: DatabaseReference!
     var client: Client!
     
